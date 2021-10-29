@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/CthuKyaw/ChatServer/issues"
   },
-  "homepage": "https://github.com/CthuKyaw/ChatServer#readme"
+  "homepage": "https://github.com/CthuKyaw/ChatServer#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14",
+    "simple-peer": "^9.11.0",
+    "socket.io": "^4.3.1"
+  }
 }
