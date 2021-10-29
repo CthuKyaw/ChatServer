@@ -1,6 +1,7 @@
 require("dotenv").config();
 const app = require("express")();
 const https = require('https');
+const cors = require("cors");
 
 var key = fs.readFileSync('./cert/selfsigned.key', 'utf8');
 var cert = fs.readFileSync('./cert/selfsigned.crt', 'utf8');
@@ -10,9 +11,6 @@ var options = {
 };
 
 const server = https.createServer(options, app);
-const cors = require("cors");
-
-
 
 const io = require("socket.io")(server, {
 	cors: {
