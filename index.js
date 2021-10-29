@@ -1,19 +1,30 @@
 require("dotenv").config();
 const app = require("express")();
-const server = require("http").createServer(app);
+const https = require('https');
+
+var key = fs.readFileSync('./cert/selfsigned.key', 'utf8');
+var cert = fs.readFileSync('./cert/selfsigned.crt', 'utf8');
+var options = {
+	key: key,
+	cert: cert
+};
+
+const server = https.createServer(options, app);
 const cors = require("cors");
+
+
 
 const io = require("socket.io")(server, {
 	cors: {
 		origin: `${process.env.CORS_CLIENT_HOST}`,
-		methods: [ "GET", "POST" ]
+		methods: ["GET", "POST"]
 	}
 });
 
 app.use(cors({
-    origin:`${process.env.CORS_CLIENT_HOST}`,
-    methods:["GET","POST","PUT","DELETE","PATCH"],
-    credentials:true
+	origin: `${process.env.CORS_CLIENT_HOST}`,
+	methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+	credentials: true
 }));
 
 const PORT = process.env.PORT || 3002;
