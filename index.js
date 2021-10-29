@@ -22,8 +22,7 @@ const io = require("socket.io")(server, {
 
 app.use(cors({
 	origin: `${process.env.CORS_CLIENT_HOST}`,
-	methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-	credentials: true
+	methods: ["GET", "POST"]
 }));
 
 const PORT = process.env.PORT || 3002;
