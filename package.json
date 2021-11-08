@@ -24,5 +24,6 @@
     "nodemon": "^2.0.14",
     "simple-peer": "^9.11.0",
     "socket.io": "^2.3.0"
+    
   }
 }
